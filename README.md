@@ -58,5 +58,5 @@ A **futuristic Chrome Extension** that detects whether a given URL is **legit** 
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/your-username/phishing-site-checker.git
+git clone https://github.com/shreyaskharat19/phishing-site-checker.git
 cd phishing-site-checker
