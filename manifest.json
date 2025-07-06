@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Phishing Site Checker",
+  "version": "1.0",
+  "description": "Detect if a URL is phishing or legit",
+  "permissions": ["activeTab", "scripting", "webRequest", "tabs"],
+  "host_permissions": ["http://localhost:5005/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  }
+}

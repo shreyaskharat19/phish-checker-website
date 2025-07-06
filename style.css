@@ -1,0 +1,223 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: #0f0c29;
+  color: #00ffe7;
+  height: 300px;
+  width: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.1) 0%, transparent 80%),
+              url("https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/particlesbg.png");
+  background-size: cover;
+  z-index: 0;
+  animation: zoom 30s infinite linear;
+  opacity: 0.05;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmJzdHhsNTRwZDVzMm1qZ3c5YjFvZ2NiM2oyZTY3czlyb3g5M3JnaCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/cNZoyqRzGQhGm/giphy.gif") center/cover no-repeat;
+  opacity: 0.08;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  width: 90%;
+  height: 90%;
+  padding: 15px;
+  z-index: 1;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 0 30px #00ffe7, inset 0 0 15px #00ffe7;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.outer-glow {
+  border: 2px solid transparent;
+  box-shadow: 0 0 15px 5px #00ffe7, 0 0 30px 10px #ff00ff inset;
+}
+
+.screen {
+  width: 100%;
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.screen.active {
+  display: flex;
+  opacity: 1;
+  transform: translateX(0%);
+  z-index: 1;
+}
+
+.screen.hidden-left {
+  transform: translateX(-100%);
+}
+
+h3 {
+  text-align: center;
+  margin-bottom: 16px;
+  font-size: 16px;
+  color: #00ffe7;
+  text-shadow: 0 0 8px #00ffe7, 0 0 3px #ff00ff;
+  animation: glitch 2s infinite;
+}
+
+.container {
+  animation: borderPulse 5s infinite linear;
+}
+@keyframes borderPulse {
+  0% { box-shadow: 0 0 30px #00ffe7, inset 0 0 15px #00ffe7; }
+  50% { box-shadow: 0 0 40px #ff00ff, inset 0 0 20px #ff00ff; }
+  100% { box-shadow: 0 0 30px #00ffe7, inset 0 0 15px #00ffe7; }
+}
+
+textarea {
+  background: #111828dd;
+  border: 2px solid #00ffe7;
+  color: #00ffe7;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  resize: none;
+  outline: none;
+  width: 100%;
+  height: 60px;
+  margin-bottom: 12px;
+  box-shadow: inset 0 0 12px #00ffe7;
+  animation: pulse 3s infinite ease-in-out;
+  text-align: left;
+}
+
+textarea:focus {
+  border-color: #ff00ff;
+  box-shadow: 0 0 12px #ff00ff;
+}
+
+button {
+  background: linear-gradient(90deg, #00ffe7, #ff00ff);
+  border: none;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px;
+  margin-top: 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 18px #00ffe7;
+  width: 100%;
+  animation: pulseBtn 4s infinite ease-in-out;
+}
+
+@keyframes pulseBtn {
+  0%, 100% { box-shadow: 0 0 15px #00ffe7; }
+  50% { box-shadow: 0 0 25px #ff00ff; }
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px #ff00ff, 0 0 15px #00ffe7;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 10px;
+  background: #333;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: inset 0 0 5px #00ffe7;
+  margin-top: 8px;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(to right, #00ffe7, #ff00ff);
+  width: 0%;
+  transition: width 1.2s ease;
+}
+
+.terminal-text {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+  white-space: pre-wrap;
+  color: #00ffcc;
+  width: 100%;
+  max-height: 100px;
+  overflow-y: auto;
+  padding: 10px;
+  background: #00000099;
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px #00ffe7;
+  margin-bottom: 10px;
+}
+
+.padlock {
+  margin-top: 8px;
+  font-size: 14px;
+  text-align: center;
+  color: #00ff99;
+  animation: pulse 2s infinite;
+  width: 100%;
+}
+
+.mic-btn {
+  position: absolute;
+  top: 80px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+@keyframes zoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.5); }
+}
+
+/* NEW: Consistent spacing and layout perfection */
+.screen > * {
+  max-width: 90%;
+  width: 100%;
+  margin-bottom: 12px;
+}
+.screen > *:last-child {
+  margin-bottom: 0;
+}
+
+#confidenceWrapper label {
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: 4px;
+  color: #00ffe7;
+  text-shadow: 0 0 3px #00ffe7;
+}
+
+#backBtn {
+  margin-top: 10px;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Phishing Checker</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container outer-glow">
+
+    <!-- Screen 1: Input -->
+    <div class="container">
+      <div class="screen active" id="inputScreen">
+        <h3>🔮 Phishing Site Detection</h3>
+          <textarea id="urlInput" placeholder="Paste the URL..."></textarea>
+        <button id="checkBtn">Check URL</button>
+      <div class="spinner" id="spinner"></div>
+    </div>
+
+    <!-- Screen 2: Result -->
+    <div id="resultScreen" class="screen">
+      <h3 id="resultTitle">🧠 Analyzing...</h3>
+      <div id="resultText" class="terminal-text"></div>
+      <div id="confidenceWrapper" style="display: none;">
+        <label>Confidence:</label>
+        <div class="progress-bar-bg">
+          <div id="confidenceBar" class="progress-bar-fill"></div>
+        </div>
+      </div>
+      <div id="padlock" class="padlock" style="display: none;">🔒 Site is safe</div>
+      <button id="backBtn">← Back</button>
+    </div>
+
+  </div>
+  <script src="popup.js"></script>
+  <audio id="alertSound" src="beep.mp3" preload="auto"></audio>
+</body>
+</html>
